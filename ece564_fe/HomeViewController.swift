@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "toCalculatorPage",
             let vc = segue.destination as? CalculatorViewController{
-            vc.resultHandler = { text in
-                self.resultLabel.text = text
+            vc.resultHandler = {[weak self] text in
+                self?.resultLabel.text = text
             }
         }
     }
